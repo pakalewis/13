@@ -11,9 +11,12 @@
 @interface PlayingCard : NSObject
 
 
-@property (strong, nonatomic) NSString* contents;
+@property (strong, nonatomic) NSString *contents;
 @property (nonatomic) NSUInteger rank;
-@property (strong, nonatomic) NSString* suit;
+@property (strong, nonatomic) NSString *suit;
 
+// Class methods
++ (NSArray *)validSuits;
++ (NSUInteger)maxRank;
 
 @end
