@@ -17,6 +17,7 @@
 		2C9AF61A1AA642D000A830DF /* _3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6191AA642D000A830DF /* _3Tests.m */; };
 		2C9AF6261AA6434F00A830DF /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6251AA6434F00A830DF /* PlayingCard.m */; };
 		2C9AF6291AA6522900A830DF /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6281AA6522900A830DF /* Deck.m */; };
+		2C9AF62C1AA667CB00A830DF /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF62B1AA667CB00A830DF /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		2C9AF6251AA6434F00A830DF /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		2C9AF6271AA6522900A830DF /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		2C9AF6281AA6522900A830DF /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		2C9AF62A1AA667CB00A830DF /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2C9AF62B1AA667CB00A830DF /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 		2C9AF6231AA6430C00A830DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C9AF62A1AA667CB00A830DF /* Player.h */,
+				2C9AF62B1AA667CB00A830DF /* Player.m */,
 				2C9AF6241AA6434F00A830DF /* PlayingCard.h */,
 				2C9AF6251AA6434F00A830DF /* PlayingCard.m */,
 				2C9AF6271AA6522900A830DF /* Deck.h */,
@@ -245,6 +250,7 @@
 				2C9AF6061AA642D000A830DF /* ViewController.m in Sources */,
 				2C9AF6261AA6434F00A830DF /* PlayingCard.m in Sources */,
 				2C9AF6291AA6522900A830DF /* Deck.m in Sources */,
+				2C9AF62C1AA667CB00A830DF /* Player.m in Sources */,
 				2C9AF6031AA642D000A830DF /* _3.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

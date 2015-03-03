@@ -48,6 +48,23 @@
 
 
 // Public methods
+- (void) dealCardsToPlayers:(NSArray *)players {
+    NSUInteger handCount = [self getCount] / [players count];
+    NSLog(@"%lu", handCount);
+    
+    for (Player *player in players) {
+        int count = 1;
+        NSMutableArray *hand = [[NSMutableArray alloc] init];
+        while (count <= handCount) {
+            [hand addObject:[self drawRandomCard]];
+            count++;
+        }
+        player.hand = hand;
+    }
+}
+
+
+
 - (void) addCard:(PlayingCard *)card atTop:(BOOL)atTop {
     if (atTop) {
         [self.cards insertObject:card atIndex:0];
@@ -73,6 +90,14 @@
     
     return randomCard;
 }
+
+
+- (NSUInteger) getCount {
+    return [self.cards count];
+}
+
+
+
 
 
 

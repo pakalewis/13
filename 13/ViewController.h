@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayingCard.h"
+#import "Deck.h"
+#import "Player.h"
+
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) Deck *deck;
+@property (strong, nonatomic) NSArray *players;
 
 @end
 

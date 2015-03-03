@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "PlayingCard.h"
+#import "Player.h"
 
 @interface Deck : NSObject
 
 - (void) addCard:(PlayingCard *)card atTop:(BOOL)atTop;
 - (void) addCard:(PlayingCard *)card;
 - (PlayingCard *)drawRandomCard;
+- (NSUInteger) getCount;
+- (void) dealCardsToPlayers:(NSArray *)players;
 
 @end
