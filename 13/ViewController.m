@@ -27,7 +27,7 @@
     player3.name = @"Carlo";
     Player *player4 = [[Player alloc] init];
     player4.name = @"Evan";
-    self.players = @[player1, player2, player3, player4];
+    self.players = @[player1, player2, player3];
 
     self.deck = [[Deck alloc] init];
     [self.deck dealCardsToPlayers:self.players];
@@ -35,7 +35,7 @@
     for (Player *player in self.players) {
         NSLog(@"%@", [player displayHand]);
     }
-
+    NSLog(@"%lu", [self.deck getCount]);
 
 }
 

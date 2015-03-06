@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C8F9C7B1AA7FE2800498B43 /* NewGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7A1AA7FE2800498B43 /* NewGame.m */; };
 		2C9AF5FD1AA642D000A830DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF5FC1AA642D000A830DF /* main.m */; };
 		2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF5FF1AA642D000A830DF /* AppDelegate.m */; };
 		2C9AF6031AA642D000A830DF /* _3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6011AA642D000A830DF /* _3.xcdatamodeld */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C8F9C791AA7FE2800498B43 /* NewGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGame.h; sourceTree = "<group>"; };
+		2C8F9C7A1AA7FE2800498B43 /* NewGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGame.m; sourceTree = "<group>"; };
 		2C9AF5F71AA642D000A830DF /* 13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 13.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9AF5FB1AA642D000A830DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C9AF5FC1AA642D000A830DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				2C9AF6251AA6434F00A830DF /* PlayingCard.m */,
 				2C9AF6271AA6522900A830DF /* Deck.h */,
 				2C9AF6281AA6522900A830DF /* Deck.m */,
+				2C8F9C791AA7FE2800498B43 /* NewGame.h */,
+				2C8F9C7A1AA7FE2800498B43 /* NewGame.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8F9C7B1AA7FE2800498B43 /* NewGame.m in Sources */,
 				2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */,
 				2C9AF5FD1AA642D000A830DF /* main.m in Sources */,
 				2C9AF6061AA642D000A830DF /* ViewController.m in Sources */,
