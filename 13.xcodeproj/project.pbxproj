@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C8F9C7B1AA7FE2800498B43 /* NewGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7A1AA7FE2800498B43 /* NewGame.m */; };
+		2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7D1AAA867E00498B43 /* GameViewController.m */; };
+		2C8F9C821AAA8BC500498B43 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */; };
 		2C9AF5FD1AA642D000A830DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF5FC1AA642D000A830DF /* main.m */; };
 		2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF5FF1AA642D000A830DF /* AppDelegate.m */; };
 		2C9AF6031AA642D000A830DF /* _3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6011AA642D000A830DF /* _3.xcdatamodeld */; };
@@ -34,6 +36,10 @@
 /* Begin PBXFileReference section */
 		2C8F9C791AA7FE2800498B43 /* NewGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGame.h; sourceTree = "<group>"; };
 		2C8F9C7A1AA7FE2800498B43 /* NewGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGame.m; sourceTree = "<group>"; };
+		2C8F9C7C1AAA867E00498B43 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		2C8F9C7D1AAA867E00498B43 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		2C8F9C801AAA8BC500498B43 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
+		2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardView.m; sourceTree = "<group>"; };
 		2C9AF5F71AA642D000A830DF /* 13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 13.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9AF5FB1AA642D000A830DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C9AF5FC1AA642D000A830DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +80,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C8F9C7F1AAA8B6500498B43 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				2C9AF6241AA6434F00A830DF /* PlayingCard.h */,
+				2C9AF6251AA6434F00A830DF /* PlayingCard.m */,
+				2C9AF6271AA6522900A830DF /* Deck.h */,
+				2C9AF6281AA6522900A830DF /* Deck.m */,
+				2C8F9C801AAA8BC500498B43 /* PlayingCardView.h */,
+				2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */,
+			);
+			name = Card;
+			sourceTree = "<group>";
+		};
 		2C9AF5EE1AA642CF00A830DF = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +114,12 @@
 		2C9AF5F91AA642D000A830DF /* 13 */ = {
 			isa = PBXGroup;
 			children = (
+				2C8F9C7F1AAA8B6500498B43 /* Card */,
 				2C9AF6231AA6430C00A830DF /* Model */,
 				2C9AF6041AA642D000A830DF /* ViewController.h */,
 				2C9AF6051AA642D000A830DF /* ViewController.m */,
+				2C8F9C7C1AAA867E00498B43 /* GameViewController.h */,
+				2C8F9C7D1AAA867E00498B43 /* GameViewController.m */,
 				2C9AF6071AA642D000A830DF /* Main.storyboard */,
 				2C9AF60A1AA642D000A830DF /* Images.xcassets */,
 				2C9AF60C1AA642D000A830DF /* LaunchScreen.xib */,
@@ -140,10 +162,6 @@
 			children = (
 				2C9AF62A1AA667CB00A830DF /* Player.h */,
 				2C9AF62B1AA667CB00A830DF /* Player.m */,
-				2C9AF6241AA6434F00A830DF /* PlayingCard.h */,
-				2C9AF6251AA6434F00A830DF /* PlayingCard.m */,
-				2C9AF6271AA6522900A830DF /* Deck.h */,
-				2C9AF6281AA6522900A830DF /* Deck.m */,
 				2C8F9C791AA7FE2800498B43 /* NewGame.h */,
 				2C8F9C7A1AA7FE2800498B43 /* NewGame.m */,
 			);
@@ -254,10 +272,12 @@
 				2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */,
 				2C9AF5FD1AA642D000A830DF /* main.m in Sources */,
 				2C9AF6061AA642D000A830DF /* ViewController.m in Sources */,
+				2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */,
 				2C9AF6261AA6434F00A830DF /* PlayingCard.m in Sources */,
 				2C9AF6291AA6522900A830DF /* Deck.m in Sources */,
 				2C9AF62C1AA667CB00A830DF /* Player.m in Sources */,
 				2C9AF6031AA642D000A830DF /* _3.xcdatamodeld in Sources */,
+				2C8F9C821AAA8BC500498B43 /* PlayingCardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

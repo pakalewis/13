@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,30 +17,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-Dc-1BD">
-                                <rect key="frame" x="210" y="256" width="180" height="87"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjR-QM-pSw">
-                                <rect key="frame" x="226" y="528" width="148" height="52"/>
-                                <state key="normal" title="Click here">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjR-QM-pSw">
+                                <rect key="frame" x="262" y="550" width="76" height="30"/>
+                                <state key="normal" title="New Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pJ4-os-vjt"/>
+                                    <segue destination="hyF-gU-0Em" kind="presentation" id="uW6-mg-dUd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xjR-QM-pSw" secondAttribute="bottom" constant="20" id="3kQ-Z9-6iT"/>
+                            <constraint firstAttribute="centerX" secondItem="xjR-QM-pSw" secondAttribute="centerX" id="aIQ-X1-B7p"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="label" destination="Wa6-Dc-1BD" id="T2m-Oe-MXC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="l7P-6j-Swi">
+            <objects>
+                <viewController id="hyF-gU-0Em" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rdj-LU-MQr"/>
+                        <viewControllerLayoutGuide type="bottom" id="qBK-qs-kdw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xJR-x9-BKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-xa-J8e">
+                                <rect key="frame" x="16" y="20" width="42" height="30"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="hyF-gU-0Em" eventType="touchUpInside" id="AUO-hU-8ce"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="un5-uY-adL" userLabel="Player1HandContainer">
+                                <rect key="frame" x="16" y="430" width="568" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28243346759999999" green="0.72308084240000003" blue="0.26780771939999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="un5-uY-adL" firstAttribute="leading" secondItem="xJR-x9-BKQ" secondAttribute="leading" constant="16" id="6DH-mz-pcc"/>
+                            <constraint firstItem="qBK-qs-kdw" firstAttribute="top" secondItem="un5-uY-adL" secondAttribute="bottom" constant="20" id="Cal-A2-rke"/>
+                            <constraint firstItem="pIP-xa-J8e" firstAttribute="top" secondItem="rdj-LU-MQr" secondAttribute="bottom" id="M0b-4P-zOl"/>
+                            <constraint firstItem="pIP-xa-J8e" firstAttribute="leading" secondItem="xJR-x9-BKQ" secondAttribute="leading" constant="16" id="ruj-A5-PU2"/>
+                            <constraint firstItem="un5-uY-adL" firstAttribute="height" secondItem="xJR-x9-BKQ" secondAttribute="height" multiplier="0.25" id="t34-qL-xEY"/>
+                            <constraint firstAttribute="trailing" secondItem="un5-uY-adL" secondAttribute="trailing" constant="16" id="yEI-Wp-XZV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="player1HandContainer" destination="un5-uY-adL" id="Q6M-Kw-1s3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8n-eY-8Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="783" y="136"/>
         </scene>
     </scenes>
 </document>
