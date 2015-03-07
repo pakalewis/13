@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Deck.h"
-#import "Player.h"
+#import "NewGame.h"
 #import "PlayingCardView.h"
 
 @interface GameViewController : UIViewController
 
 
-@property (strong, nonatomic) Deck *deck;
-@property (strong, nonatomic) NSArray *players;
+@property (strong, nonatomic) NewGame *game;
 
 @end

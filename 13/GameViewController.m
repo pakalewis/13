@@ -10,10 +10,6 @@
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *player1HandContainer;
-@property (strong, nonatomic) Player * player1;
-@property (strong, nonatomic) Player * player2;
-@property (strong, nonatomic) Player * player3;
-@property (strong, nonatomic) Player * player4;
 
 @property (strong, nonatomic) NSMutableArray *playingCardViews;
 @end
@@ -23,22 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.player1 = [[Player alloc] init];
-    self.player1.name = @"Parker";
-    self.player2 = [[Player alloc] init];
-    self.player2.name = @"Grant";
-    self.player3 = [[Player alloc] init];
-    self.player3.name = @"Carlo";
-    self.player4 = [[Player alloc] init];
-    self.player4.name = @"Evan";
-    self.players = @[self.player1, self.player2, self.player3, self.player4];
     
-    self.deck = [[Deck alloc] init];
-    [self.deck dealCardsToPlayers:self.players];
-    
-//    for (Player *player in self.players) {
-//        NSLog(@"%@'s hand is %@", player.name, [player displayHand]);
-//    }
+    self.game = [[NewGame alloc] init];
 
     
 }
@@ -53,7 +35,7 @@
 - (void) createCardViews {
     self.playingCardViews = [[NSMutableArray alloc] init];
     
-    for (PlayingCard *card in self.player1.hand) {
+    for (PlayingCard *card in self.game.player1.hand) {
         PlayingCardView *cardView = [[PlayingCardView alloc] init];
         cardView.playingCard = card;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cardTappedGesture:)];
@@ -70,28 +52,26 @@
 -(void)cardTappedGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
     PlayingCardView *tappedPlayingCardView = (PlayingCardView *)tapGestureRecognizer.view;
     NSLog(@"The tapped card is %@", tappedPlayingCardView.playingCard.contents);
-    if (tappedPlayingCardView.playingCard.isSelected) {
-        tappedPlayingCardView.playingCard.selected = NO;
-        [self deselectPlayingCard:tappedPlayingCardView];
-    } else {
-        tappedPlayingCardView.playingCard.selected = YES;
-        [self selectPlayingCard:tappedPlayingCardView];
+    [self selectPlayingCard:tappedPlayingCardView];
+    
+}
+
+- (void)selectPlayingCard:(PlayingCardView *)playingCardView {
+    CGRect frame = playingCardView.frame;
+    
+    if (playingCardView.playingCard.isSelected) { // already selected
+        playingCardView.playingCard.selected = NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            playingCardView.frame = CGRectMake(frame.origin.x, frame.origin.y + 40, frame.size.width, frame.size.height);
+        }];
+    } else { // now it is selected
+        playingCardView.playingCard.selected = YES;
+        [UIView animateWithDuration:0.3 animations:^{
+            playingCardView.frame = CGRectMake(frame.origin.x, frame.origin.y - 40, frame.size.width, frame.size.height);
+        }];
     }
-    
-    
 }
 
-- (void)selectPlayingCard:(PlayingCardView *)playingCard {
-    [UIView animateWithDuration:0.3 animations:^{
-        playingCard.frame = CGRectMake(playingCard.frame.origin.x, playingCard.frame.origin.y - 40, playingCard.frame.size.width, playingCard.frame.size.height);
-    }];
-}
-
-- (void)deselectPlayingCard:(PlayingCardView *)playingCard {
-    [UIView animateWithDuration:0.3 animations:^{
-        playingCard.frame = CGRectMake(playingCard.frame.origin.x, playingCard.frame.origin.y + 40, playingCard.frame.size.width, playingCard.frame.size.height);
-    }];
-}
 
 
 
@@ -118,6 +98,10 @@
     [self dismissViewControllerAnimated:self completion:nil];
 }
 
+
+- (IBAction)playButtonPressed:(UIButton *)sender {
+    
+}
 
 
 @end

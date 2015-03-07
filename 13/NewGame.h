@@ -16,4 +16,12 @@
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) NSArray *players;
 
+@property (strong, nonatomic) Player * player1;
+@property (strong, nonatomic) Player * player2;
+@property (strong, nonatomic) Player * player3;
+@property (strong, nonatomic) Player * player4;
+
+@property (strong, nonatomic) NSMutableArray *selectedCards;
+
+
 @end
