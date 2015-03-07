@@ -28,6 +28,11 @@
     }
 }
 
+- (NSString *) rankAsString {
+    NSArray *rankStrings = [PlayingCard rankStrings];
+    return rankStrings[self.rank];
+}
+
 
 @synthesize suit = _suit;
 - (NSString *)suit {

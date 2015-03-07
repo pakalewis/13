@@ -14,8 +14,6 @@
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) Deck *deck;
-@property (strong, nonatomic) NSArray *players;
 
 @end
 
