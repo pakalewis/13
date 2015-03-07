@@ -13,30 +13,46 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        
+//        self.playingCard = [[PlayingCard alloc] init];
+
         self.backgroundColor = [UIColor blueColor];
         self.rankLabel = [[UILabel alloc] init];
         self.suitLabel = [[UILabel alloc] init];
 
+        self.rankLabel.textAlignment = NSTextAlignmentCenter;
+        self.suitLabel.textAlignment = NSTextAlignmentCenter;
+
         self.rankLabel.backgroundColor = [UIColor redColor];
         self.suitLabel.backgroundColor = [UIColor greenColor];
 
+        
         [self addSubview:self.rankLabel];
         [self addSubview:self.suitLabel];
     }
     return self;
 }
 
-//- (instancetype) initWithFrame:(CGRect)frame {
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        
-//        
-//        [self addSubview:self.rankLabel];
-//        [self addSubview:self.suitLabel];
-//    }
-//    return self;
+//@synthesize playingCard = _playingCard;
+//- (PlayingCard *)playingCard {
+//    return _playingCard;
 //}
-//
+- (void)setPlayingCard:(PlayingCard *)playingCard {
+    _playingCard = playingCard;
+    self.rankLabel.text = self.playingCard.rankAsString;
+    self.suitLabel.text = self.playingCard.suit;
+}
+
+
+
+
+-(void)cardTappedGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
+    NSLog(@"%@, tapped", self.rankLabel.text);
+}
+
+
+
+
 - (void)adjustToFitFrame:(CGRect)frame {
     
     CGRect rankFrame = CGRectMake(0, 0, frame.size.width, 40);

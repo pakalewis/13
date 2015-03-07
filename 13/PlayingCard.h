@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *contents;
 @property (nonatomic) NSUInteger rank;
 @property (strong, nonatomic) NSString *suit;
+@property (nonatomic, getter=isSelected) BOOL selected;
 
 - (NSString *) rankAsString;
 

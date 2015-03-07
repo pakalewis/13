@@ -50,7 +50,7 @@
 // Public methods
 - (void) dealCardsToPlayers:(NSArray *)players {
     NSUInteger handCount = [self getCount] / [players count];
-    NSLog(@"%lu", handCount);
+//    NSLog(@"%lu", handCount);
     
     for (Player *player in players) {
         int count = 1;

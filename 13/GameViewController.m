@@ -36,9 +36,9 @@
     self.deck = [[Deck alloc] init];
     [self.deck dealCardsToPlayers:self.players];
     
-    for (Player *player in self.players) {
-        NSLog(@"%@'s hand is %@", player.name, [player displayHand]);
-    }
+//    for (Player *player in self.players) {
+//        NSLog(@"%@'s hand is %@", player.name, [player displayHand]);
+//    }
 
     
 }
@@ -46,24 +46,57 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:true];
 
+    [self createCardViews];
+}
+
+
+- (void) createCardViews {
     self.playingCardViews = [[NSMutableArray alloc] init];
     
     for (PlayingCard *card in self.player1.hand) {
         PlayingCardView *cardView = [[PlayingCardView alloc] init];
-        cardView.rankLabel.text = [card rankAsString];
-        cardView.suitLabel.text = card.suit;
+        cardView.playingCard = card;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cardTappedGesture:)];
+        [cardView addGestureRecognizer:tapGesture];
         [self.player1HandContainer addSubview:cardView];
         [self.playingCardViews addObject:cardView];
     }
     [self updateCardFrames];
+
 }
 
-- (IBAction)backButton:(UIButton *)sender {
-    [self dismissViewControllerAnimated:self completion:nil];
+
+
+-(void)cardTappedGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
+    PlayingCardView *tappedPlayingCardView = (PlayingCardView *)tapGestureRecognizer.view;
+    NSLog(@"The tapped card is %@", tappedPlayingCardView.playingCard.contents);
+    if (tappedPlayingCardView.playingCard.isSelected) {
+        tappedPlayingCardView.playingCard.selected = NO;
+        [self deselectPlayingCard:tappedPlayingCardView];
+    } else {
+        tappedPlayingCardView.playingCard.selected = YES;
+        [self selectPlayingCard:tappedPlayingCardView];
+    }
+    
+    
 }
+
+- (void)selectPlayingCard:(PlayingCardView *)playingCard {
+    [UIView animateWithDuration:0.3 animations:^{
+        playingCard.frame = CGRectMake(playingCard.frame.origin.x, playingCard.frame.origin.y - 40, playingCard.frame.size.width, playingCard.frame.size.height);
+    }];
+}
+
+- (void)deselectPlayingCard:(PlayingCardView *)playingCard {
+    [UIView animateWithDuration:0.3 animations:^{
+        playingCard.frame = CGRectMake(playingCard.frame.origin.x, playingCard.frame.origin.y + 40, playingCard.frame.size.width, playingCard.frame.size.height);
+    }];
+}
+
+
 
 - (void)updateCardFrames {
-
+    
     CGFloat height = self.player1HandContainer.frame.size.height;
     CGFloat width = self.player1HandContainer.frame.size.width / [self.playingCardViews count];
     
@@ -71,12 +104,20 @@
     for (PlayingCardView *playingCardView in self.playingCardViews) {
         CGRect cardFrame = CGRectMake(count * width, 0, width, height);
         playingCardView.frame = cardFrame;
-        NSLog(@"%@", NSStringFromCGRect(cardFrame));
+        //        NSLog(@"%@", NSStringFromCGRect(cardFrame));
         [playingCardView adjustToFitFrame:cardFrame];
         count++;
     }
     
 }
+
+
+
+
+- (IBAction)backButton:(UIButton *)sender {
+    [self dismissViewControllerAnimated:self completion:nil];
+}
+
 
 
 @end

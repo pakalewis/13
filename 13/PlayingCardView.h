@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PlayingCard.h"
 @interface PlayingCardView : UIView
 
-@property (strong, nonatomic) UILabel * rankLabel;
-@property (strong, nonatomic) UILabel * suitLabel;
+@property (strong, nonatomic) PlayingCard *playingCard;
 
+@property (strong, nonatomic) UILabel *rankLabel;
+@property (strong, nonatomic) UILabel *suitLabel;
+@property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 
 - (void)adjustToFitFrame:(CGRect)frame;
 
