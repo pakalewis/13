@@ -13,4 +13,7 @@
 @property (strong, nonatomic) UILabel * rankLabel;
 @property (strong, nonatomic) UILabel * suitLabel;
 
+
+- (void)adjustToFitFrame:(CGRect)frame;
+
 @end

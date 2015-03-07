@@ -10,7 +10,12 @@
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *player1HandContainer;
+@property (strong, nonatomic) Player * player1;
+@property (strong, nonatomic) Player * player2;
+@property (strong, nonatomic) Player * player3;
+@property (strong, nonatomic) Player * player4;
 
+@property (strong, nonatomic) NSMutableArray *playingCardViews;
 @end
 
 @implementation GameViewController
@@ -18,15 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    Player *player1 = [[Player alloc] init];
-    player1.name = @"Parker";
-    Player *player2 = [[Player alloc] init];
-    player2.name = @"Grant";
-    Player *player3 = [[Player alloc] init];
-    player3.name = @"Carlo";
-    Player *player4 = [[Player alloc] init];
-    player4.name = @"Evan";
-    self.players = @[player1, player2, player3, player4];
+    self.player1 = [[Player alloc] init];
+    self.player1.name = @"Parker";
+    self.player2 = [[Player alloc] init];
+    self.player2.name = @"Grant";
+    self.player3 = [[Player alloc] init];
+    self.player3.name = @"Carlo";
+    self.player4 = [[Player alloc] init];
+    self.player4.name = @"Evan";
+    self.players = @[self.player1, self.player2, self.player3, self.player4];
     
     self.deck = [[Deck alloc] init];
     [self.deck dealCardsToPlayers:self.players];
@@ -35,34 +40,42 @@
         NSLog(@"%@'s hand is %@", player.name, [player displayHand]);
     }
 
-//    for (PlayingCard *card in player1.hand) {
-////        NSLog(@"%@", card.contents);
-//
-//        CGFloat height = self.player1HandContainer.frame.size.height;
-//        CGFloat width = self.player1HandContainer.frame.size.width / 13;
-//        
-//        CGRect cardFrame = CGRectMake(0, 0, 50, 100);
-//        PlayingCardView *cardView = [[PlayingCardView alloc] initWithFrame:cardFrame];
-//        cardView.rankLabel.text = [card rankAsString];
-//        cardView.suitLabel.text = card.suit;
-//        [self.player1HandContainer addSubview:cardView];
-//
-//    }
     
-    CGRect cardFrame = CGRectMake(20, 20, 50, 100);
-    PlayingCardView *cardView = [[PlayingCardView alloc] initWithFrame:cardFrame];
-    cardView.rankLabel.text = @"4";
-    cardView.suitLabel.text = @"CLUBS";
-    [self.view addSubview:cardView];
-//    [self.view bringSubviewToFront:cardView];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:true];
+
+    self.playingCardViews = [[NSMutableArray alloc] init];
     
-//    UIView *testView = [[UIView alloc] initWithFrame:cardFrame];
-//    testView.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:testView];
+    for (PlayingCard *card in self.player1.hand) {
+        PlayingCardView *cardView = [[PlayingCardView alloc] init];
+        cardView.rankLabel.text = [card rankAsString];
+        cardView.suitLabel.text = card.suit;
+        [self.player1HandContainer addSubview:cardView];
+        [self.playingCardViews addObject:cardView];
+    }
+    [self updateCardFrames];
 }
 
 - (IBAction)backButton:(UIButton *)sender {
     [self dismissViewControllerAnimated:self completion:nil];
+}
+
+- (void)updateCardFrames {
+
+    CGFloat height = self.player1HandContainer.frame.size.height;
+    CGFloat width = self.player1HandContainer.frame.size.width / [self.playingCardViews count];
+    
+    int count = 0;
+    for (PlayingCardView *playingCardView in self.playingCardViews) {
+        CGRect cardFrame = CGRectMake(count * width, 0, width, height);
+        playingCardView.frame = cardFrame;
+        NSLog(@"%@", NSStringFromCGRect(cardFrame));
+        [playingCardView adjustToFitFrame:cardFrame];
+        count++;
+    }
+    
 }
 
 
