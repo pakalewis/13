@@ -15,5 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *hand;
 
 - (NSString *)displayHand;
+- (void)addSelectedCard(PlayingCard *)card;
+
 
 @end

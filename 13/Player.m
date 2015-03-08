@@ -20,5 +20,8 @@
     return handString;
 }
 
+- (void)addSelectedCard(PlayingCard *)card {
+    
+}
 
 @end
