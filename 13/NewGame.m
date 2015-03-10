@@ -26,7 +26,7 @@
         
         self.deck = [[Deck alloc] init];
         [self.deck dealCardsToPlayers:self.players];
-
+        [self.player1 displayHand];
     }
 
     return self;

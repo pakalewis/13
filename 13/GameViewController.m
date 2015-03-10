@@ -54,6 +54,7 @@
     NSLog(@"The tapped card is %@", tappedPlayingCardView.playingCard.contents);
     [self selectPlayingCard:tappedPlayingCardView];
     
+    
 }
 
 - (void)selectPlayingCard:(PlayingCardView *)playingCardView {
@@ -61,11 +62,13 @@
     
     if (playingCardView.playingCard.isSelected) { // already selected
         playingCardView.playingCard.selected = NO;
+        [self.game.player1 removeCardFromCombination:playingCardView.playingCard];
         [UIView animateWithDuration:0.3 animations:^{
             playingCardView.frame = CGRectMake(frame.origin.x, frame.origin.y + 40, frame.size.width, frame.size.height);
         }];
     } else { // now it is selected
         playingCardView.playingCard.selected = YES;
+        [self.game.player1 addCardToCombination:playingCardView.playingCard];
         [UIView animateWithDuration:0.3 animations:^{
             playingCardView.frame = CGRectMake(frame.origin.x, frame.origin.y - 40, frame.size.width, frame.size.height);
         }];
@@ -100,6 +103,7 @@
 
 
 - (IBAction)playButtonPressed:(UIButton *)sender {
+    [self.game.player1 playCombination];
     
 }
 

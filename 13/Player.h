@@ -13,9 +13,12 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *hand;
+@property (strong, nonatomic) NSMutableArray *combinationToPlay;
 
-- (NSString *)displayHand;
-- (void)addSelectedCard(PlayingCard *)card;
-
+- (void)displayHand;
+- (void)displayCurrentCombination;
+- (void)addCardToCombination:(PlayingCard *)card;
+- (void)removeCardFromCombination:(PlayingCard *)card;
+- (void)playCombination;
 
 @end
