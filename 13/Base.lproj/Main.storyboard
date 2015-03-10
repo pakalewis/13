@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -61,11 +62,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="un5-uY-adL" userLabel="Player1HandContainer">
-                                <rect key="frame" x="16" y="430" width="568" height="150"/>
+                                <rect key="frame" x="16" y="390" width="568" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RK2-lf-PEh">
-                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                                <rect key="frame" x="285" y="550" width="30" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,21 +75,48 @@
                                     <action selector="playButtonPressed:" destination="hyF-gU-0Em" eventType="touchUpInside" id="FwQ-fq-Uaz"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDB-uZ-CQP" userLabel="Tableau">
+                                <rect key="frame" x="270" y="225" width="60" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YDB-uZ-CQP" secondAttribute="height" multiplier="1:1" id="ddJ-Oq-6o5"/>
+                                    <constraint firstAttribute="width" secondItem="YDB-uZ-CQP" secondAttribute="height" multiplier="2:5" id="x1m-EV-mjn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ddJ-Oq-6o5"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.28243346759999999" green="0.72308084240000003" blue="0.26780771939999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="RK2-lf-PEh" firstAttribute="top" secondItem="un5-uY-adL" secondAttribute="bottom" constant="10" id="1Nt-Xb-Hpu"/>
                             <constraint firstAttribute="centerX" secondItem="RK2-lf-PEh" secondAttribute="centerX" id="2DJ-Nd-IVJ"/>
                             <constraint firstItem="un5-uY-adL" firstAttribute="leading" secondItem="xJR-x9-BKQ" secondAttribute="leading" constant="16" id="6DH-mz-pcc"/>
                             <constraint firstItem="qBK-qs-kdw" firstAttribute="top" secondItem="un5-uY-adL" secondAttribute="bottom" constant="20" id="Cal-A2-rke"/>
+                            <constraint firstItem="YDB-uZ-CQP" firstAttribute="height" secondItem="un5-uY-adL" secondAttribute="height" id="E8O-9r-WIc"/>
                             <constraint firstItem="pIP-xa-J8e" firstAttribute="top" secondItem="rdj-LU-MQr" secondAttribute="bottom" id="M0b-4P-zOl"/>
                             <constraint firstAttribute="centerY" secondItem="RK2-lf-PEh" secondAttribute="centerY" id="PMO-Zh-nOi"/>
+                            <constraint firstItem="YDB-uZ-CQP" firstAttribute="centerX" secondItem="un5-uY-adL" secondAttribute="centerX" id="dhJ-Pd-fD0"/>
+                            <constraint firstAttribute="centerY" secondItem="YDB-uZ-CQP" secondAttribute="centerY" id="hgN-9w-2lz"/>
                             <constraint firstItem="pIP-xa-J8e" firstAttribute="leading" secondItem="xJR-x9-BKQ" secondAttribute="leading" constant="16" id="ruj-A5-PU2"/>
                             <constraint firstItem="un5-uY-adL" firstAttribute="height" secondItem="xJR-x9-BKQ" secondAttribute="height" multiplier="0.25" id="t34-qL-xEY"/>
+                            <constraint firstItem="qBK-qs-kdw" firstAttribute="top" secondItem="RK2-lf-PEh" secondAttribute="bottom" constant="20" id="tbk-ye-SLQ"/>
+                            <constraint firstItem="YDB-uZ-CQP" firstAttribute="width" secondItem="xJR-x9-BKQ" secondAttribute="width" multiplier="0.5" id="uaS-QX-Grj"/>
                             <constraint firstAttribute="trailing" secondItem="un5-uY-adL" secondAttribute="trailing" constant="16" id="yEI-Wp-XZV"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uaS-QX-Grj"/>
+                                <exclude reference="Cal-A2-rke"/>
+                                <exclude reference="PMO-Zh-nOi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="player1HandContainer" destination="un5-uY-adL" id="Q6M-Kw-1s3"/>
+                        <outlet property="tableauView" destination="YDB-uZ-CQP" id="kJe-wv-Pm8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8n-eY-8Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
