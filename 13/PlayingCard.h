@@ -17,7 +17,8 @@
 @property (nonatomic, getter=isSelected) BOOL selected;
 
 - (NSString *) rankAsString;
-
+- (BOOL)isSuitBlack;
+- (BOOL)isSuitRed;
 
 // Class methods
 + (NSArray *)validSuits;

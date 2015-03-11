@@ -31,6 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.player1HandContainer.backgroundColor = [UIColor clearColor];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -93,32 +94,58 @@
     CGFloat posX = self.player1HandContainer.frame.origin.x;
     CGFloat posY = self.player1HandContainer.frame.origin.y;
     
-    
+//    float timeBetweenEvents = 3.0;
     int count = 0;
     for (PlayingCardView *playingCardView in self.playingCardViews) {
         CGRect frame = CGRectMake(posX + count * width, posY, playingCardView.frame.size.width, playingCardView.frame.size.height);
+        
+//        NSMethodSignature *methodSig = [NSMethodSignature methodSignatureForSelector:@selector(animateCardView:ToFrame:)];
+//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+//        [invocation setTarget:self];
+//        [invocation setSelector:@selector(animateCardView:ToFrame:)];
+//        [invocation setArgument:&(playingCardView) atIndex:2];
+//        [invocation setArgument:&frame atIndex:3];
+//        
+//        
+//        [self performSelector:@selector(animateCardView:ToFrame:) withObject:playingCardView afterDelay:(count * timeBetweenEvents)];
+
         [UIView animateWithDuration:0.3 animations:^{
             playingCardView.frame = frame;
         }];
         count++;
     }
-    
-
 }
 
+- (void) animateCardView:(PlayingCardView *)playingCardView ToFrame:(CGRect)frame {
+    [UIView animateWithDuration:0.3 animations:^{
+        playingCardView.frame = frame;
+    }];
+}
 
 
 - (void)updateCardFrames {
     
-    CGFloat height = self.player1HandContainer.frame.size.height;
-    CGFloat width = self.player1HandContainer.frame.size.width / [self.playingCardViews count];
+    CGFloat containerHeight = self.player1HandContainer.frame.size.height;
+    CGFloat containerWidth = self.player1HandContainer.frame.size.width;
+    CGFloat containerCenterX = containerWidth / 2;
     
+    NSLog(@"cards to display is %lu", [self.playingCardViews count]);
+    
+    CGFloat overlap = 25;
+    CGFloat totalOverlap = ([self.playingCardViews count] - 1) * overlap;
+    NSLog(@"totalOverlap is %f", totalOverlap);
+    CGFloat startingX = (containerWidth - self.tableauView.frame.size.width - totalOverlap) / 2;
+    NSLog(@"startingX is %f", startingX);
+
     int count = 0;
     for (PlayingCardView *playingCardView in self.playingCardViews) {
-        CGRect cardFrame = CGRectMake(count * width, 0, width, height);
-        playingCardView.frame = cardFrame;
-        //        NSLog(@"%@", NSStringFromCGRect(cardFrame));
-        [playingCardView adjustToFitFrame:cardFrame];
+        CGRect cardFrame = CGRectMake(startingX + (count * overlap),
+                                      playingCardView.frame.origin.y,
+                                      playingCardView.frame.size.width,
+                                      playingCardView.frame.size.height);
+        [UIView animateWithDuration:0.3 animations:^{
+            playingCardView.frame = cardFrame;
+        }];
         count++;
     }
     
@@ -141,11 +168,14 @@
 
         [UIView animateWithDuration:0.3 animations:^{
             [self.view bringSubviewToFront:playingCardView];
-            playingCardView.frame = CGRectMake(tableauFrame.origin.x, tableauFrame.origin.y, playingCardView.frame.size.width, playingCardView.frame.size.height);
+            playingCardView.frame = CGRectMake(tableauFrame.origin.x,
+                                               tableauFrame.origin.y,
+                                               playingCardView.frame.size.width,
+                                               playingCardView.frame.size.height);
         }];
 
     }
-//    [self updateCardFrames];
+    [self updateCardFrames];
 }
 
 

@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UILabel *rankLabel;
 @property (strong, nonatomic) UILabel *suitLabel;
+@property (strong, nonatomic) UILabel *centerLabel;
 @property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 
 - (void)adjustToFitFrame:(CGRect)frame;

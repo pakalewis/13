@@ -14,21 +14,6 @@
     self = [super init];
     if (self) {
         
-        //        self.playingCard = [[PlayingCard alloc] init];
-        
-        self.backgroundColor = [UIColor blueColor];
-        self.rankLabel = [[UILabel alloc] init];
-        self.suitLabel = [[UILabel alloc] init];
-        
-        self.rankLabel.textAlignment = NSTextAlignmentCenter;
-        self.suitLabel.textAlignment = NSTextAlignmentCenter;
-        
-        self.rankLabel.backgroundColor = [UIColor redColor];
-        self.suitLabel.backgroundColor = [UIColor greenColor];
-        
-        
-        [self addSubview:self.rankLabel];
-        [self addSubview:self.suitLabel];
     }
     return self;
 }
@@ -37,15 +22,21 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor lightGrayColor];
+        self.layer.borderWidth = 2;
+        self.layer.cornerRadius = 10;
+        
         self.rankLabel = [[UILabel alloc] init];
         self.suitLabel = [[UILabel alloc] init];
-        
+        self.centerLabel = [[UILabel alloc] init];
+
         self.rankLabel.textAlignment = NSTextAlignmentLeft;
         self.suitLabel.textAlignment = NSTextAlignmentLeft;
-        
-        self.rankLabel.backgroundColor = [UIColor redColor];
-        self.suitLabel.backgroundColor = [UIColor greenColor];
+        self.centerLabel.textAlignment = NSTextAlignmentCenter;
+
+        self.rankLabel.backgroundColor = [UIColor clearColor];
+        self.suitLabel.backgroundColor = [UIColor clearColor];
+        self.centerLabel.backgroundColor = [UIColor clearColor];
         
         CGRect rankFrame = CGRectMake(0, 0, frame.size.width, 40);
         self.rankLabel.frame = rankFrame;
@@ -53,8 +44,13 @@
         CGRect suitFrame = CGRectMake(0, 40, frame.size.width, 40);
         self.suitLabel.frame = suitFrame;
 
+        CGFloat centerLabelWidth = frame.size.width * 0.75;
+        CGRect centerSuitFrame = CGRectMake((frame.size.width / 2) - (centerLabelWidth / 2), frame.size.height / 2 - centerLabelWidth / 2, centerLabelWidth, centerLabelWidth);
+        self.centerLabel.frame = centerSuitFrame;
+
         [self addSubview:self.rankLabel];
         [self addSubview:self.suitLabel];
+        [self addSubview:self.centerLabel];
     }
     return self;
 }
@@ -69,14 +65,17 @@
     _playingCard = playingCard;
     self.rankLabel.text = [NSString stringWithFormat:@" %@", self.playingCard.rankAsString];
     self.suitLabel.text = [NSString stringWithFormat:@" %@", self.playingCard.suit];
+    self.centerLabel.text = [NSString stringWithFormat:@" %@", self.playingCard.suit];
+    if (playingCard.isSuitRed) {
+        self.rankLabel.textColor = [UIColor redColor];
+        self.suitLabel.textColor = [UIColor redColor];
+        self.centerLabel.textColor = [UIColor redColor];
+    }
 }
 
 
 
 
--(void)cardTappedGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
-    NSLog(@"%@, tapped", self.rankLabel.text);
-}
 
 
 

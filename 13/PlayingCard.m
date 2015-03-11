@@ -11,8 +11,22 @@
 @implementation PlayingCard
 
 
+-(BOOL)isSuitBlack {
+    if ([self.suit isEqualToString:@"♠︎"] || [self.suit isEqualToString:@"♣︎"]) {
+        return YES;
+    }
+//    if ([self.suit isEqualToString:@"♣︎"]) {
+//        return YES;
+//    }
+    return NO;
+}
 
-
+- (BOOL)isSuitRed {
+    if ([self.suit isEqualToString:@"♦︎"] || [self.suit isEqualToString:@"♥︎"]) {
+        return YES;
+    }
+    return NO;
+}
 
 // Getter for contents property
 - (NSString *)contents {
