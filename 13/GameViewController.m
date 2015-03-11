@@ -15,6 +15,8 @@
 @property (strong, nonatomic) NSMutableArray *playingCardViews;
 @property (strong, nonatomic) NSMutableArray *selectedCardViews;
 
+@property (nonatomic) CGFloat initialOverlap;
+
 @end
 
 @implementation GameViewController
@@ -90,24 +92,18 @@
 
 - (void) dealCardViews {
 //    CGFloat height = self.player1HandContainer.frame.size.height;
-    CGFloat width = self.player1HandContainer.frame.size.width / [self.playingCardViews count];
+//    CGFloat width = self.player1HandContainer.frame.size.width / [self.playingCardViews count];
     CGFloat posX = self.player1HandContainer.frame.origin.x;
     CGFloat posY = self.player1HandContainer.frame.origin.y;
     
-//    float timeBetweenEvents = 3.0;
+    CGFloat leadingSpace = self.player1HandContainer.frame.size.width - self.tableauView.frame.size.width;
+    CGFloat overlap = leadingSpace / 12;
+    self.initialOverlap = overlap;
+    NSLog(@"%f", self.initialOverlap);
+    
     int count = 0;
     for (PlayingCardView *playingCardView in self.playingCardViews) {
-        CGRect frame = CGRectMake(posX + count * width, posY, playingCardView.frame.size.width, playingCardView.frame.size.height);
-        
-//        NSMethodSignature *methodSig = [NSMethodSignature methodSignatureForSelector:@selector(animateCardView:ToFrame:)];
-//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
-//        [invocation setTarget:self];
-//        [invocation setSelector:@selector(animateCardView:ToFrame:)];
-//        [invocation setArgument:&(playingCardView) atIndex:2];
-//        [invocation setArgument:&frame atIndex:3];
-//        
-//        
-//        [self performSelector:@selector(animateCardView:ToFrame:) withObject:playingCardView afterDelay:(count * timeBetweenEvents)];
+        CGRect frame = CGRectMake(posX + count * overlap, posY, playingCardView.frame.size.width, playingCardView.frame.size.height);
 
         [UIView animateWithDuration:0.3 animations:^{
             playingCardView.frame = frame;
@@ -116,6 +112,8 @@
     }
 }
 
+
+// Helper method. Need to figure out how to call via invocation
 - (void) animateCardView:(PlayingCardView *)playingCardView ToFrame:(CGRect)frame {
     [UIView animateWithDuration:0.3 animations:^{
         playingCardView.frame = frame;
@@ -123,18 +121,20 @@
 }
 
 
-- (void)updateCardFrames {
+- (void)adjustCardFrames {
     
-    CGFloat containerHeight = self.player1HandContainer.frame.size.height;
     CGFloat containerWidth = self.player1HandContainer.frame.size.width;
-    CGFloat containerCenterX = containerWidth / 2;
+    CGFloat cardWidth = self.tableauView.frame.size.width;
     
-    NSLog(@"cards to display is %lu", [self.playingCardViews count]);
+    CGFloat overlap = (containerWidth - cardWidth) / ([self.playingCardViews count] - 1);
+    if (overlap > 40) {
+        overlap = 40;
+    }
+
     
-    CGFloat overlap = 25;
     CGFloat totalOverlap = ([self.playingCardViews count] - 1) * overlap;
     NSLog(@"totalOverlap is %f", totalOverlap);
-    CGFloat startingX = (containerWidth - self.tableauView.frame.size.width - totalOverlap) / 2;
+    CGFloat startingX = 10 + (containerWidth - cardWidth - totalOverlap) / 2;
     NSLog(@"startingX is %f", startingX);
 
     int count = 0;
@@ -175,8 +175,22 @@
         }];
 
     }
-    [self updateCardFrames];
+    [self adjustCardFrames];
 }
+
+
+
+//    float timeBetweenEvents = 3.0;
+//        NSMethodSignature *methodSig = [NSMethodSignature methodSignatureForSelector:@selector(animateCardView:ToFrame:)];
+//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+//        [invocation setTarget:self];
+//        [invocation setSelector:@selector(animateCardView:ToFrame:)];
+//        [invocation setArgument:&(playingCardView) atIndex:2];
+//        [invocation setArgument:&frame atIndex:3];
+//
+//
+//        [self performSelector:@selector(animateCardView:ToFrame:) withObject:playingCardView afterDelay:(count * timeBetweenEvents)];
+
 
 
 @end
