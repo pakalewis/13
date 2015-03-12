@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C8F9C7B1AA7FE2800498B43 /* NewGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7A1AA7FE2800498B43 /* NewGame.m */; };
+		2C8F9C7B1AA7FE2800498B43 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7A1AA7FE2800498B43 /* Game.m */; };
 		2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7D1AAA867E00498B43 /* GameViewController.m */; };
 		2C8F9C821AAA8BC500498B43 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */; };
 		2C9AF5FD1AA642D000A830DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF5FC1AA642D000A830DF /* main.m */; };
 		2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF5FF1AA642D000A830DF /* AppDelegate.m */; };
 		2C9AF6031AA642D000A830DF /* _3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6011AA642D000A830DF /* _3.xcdatamodeld */; };
-		2C9AF6061AA642D000A830DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6051AA642D000A830DF /* ViewController.m */; };
+		2C9AF6061AA642D000A830DF /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6051AA642D000A830DF /* MainMenuViewController.m */; };
 		2C9AF6091AA642D000A830DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9AF6071AA642D000A830DF /* Main.storyboard */; };
 		2C9AF60B1AA642D000A830DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9AF60A1AA642D000A830DF /* Images.xcassets */; };
 		2C9AF60E1AA642D000A830DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C9AF60C1AA642D000A830DF /* LaunchScreen.xib */; };
@@ -34,8 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C8F9C791AA7FE2800498B43 /* NewGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGame.h; sourceTree = "<group>"; };
-		2C8F9C7A1AA7FE2800498B43 /* NewGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGame.m; sourceTree = "<group>"; };
+		2C8F9C791AA7FE2800498B43 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		2C8F9C7A1AA7FE2800498B43 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		2C8F9C7C1AAA867E00498B43 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		2C8F9C7D1AAA867E00498B43 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		2C8F9C801AAA8BC500498B43 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
@@ -46,8 +46,8 @@
 		2C9AF5FE1AA642D000A830DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C9AF5FF1AA642D000A830DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2C9AF6021AA642D000A830DF /* _3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _3.xcdatamodel; sourceTree = "<group>"; };
-		2C9AF6041AA642D000A830DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2C9AF6051AA642D000A830DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2C9AF6041AA642D000A830DF /* MainMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		2C9AF6051AA642D000A830DF /* MainMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		2C9AF6081AA642D000A830DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C9AF60A1AA642D000A830DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2C9AF60D1AA642D000A830DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 			children = (
 				2C8F9C7F1AAA8B6500498B43 /* Card */,
 				2C9AF6231AA6430C00A830DF /* Model */,
-				2C9AF6041AA642D000A830DF /* ViewController.h */,
-				2C9AF6051AA642D000A830DF /* ViewController.m */,
+				2C9AF6041AA642D000A830DF /* MainMenuViewController.h */,
+				2C9AF6051AA642D000A830DF /* MainMenuViewController.m */,
 				2C8F9C7C1AAA867E00498B43 /* GameViewController.h */,
 				2C8F9C7D1AAA867E00498B43 /* GameViewController.m */,
 				2C9AF6071AA642D000A830DF /* Main.storyboard */,
@@ -162,8 +162,8 @@
 			children = (
 				2C9AF62A1AA667CB00A830DF /* Player.h */,
 				2C9AF62B1AA667CB00A830DF /* Player.m */,
-				2C8F9C791AA7FE2800498B43 /* NewGame.h */,
-				2C8F9C7A1AA7FE2800498B43 /* NewGame.m */,
+				2C8F9C791AA7FE2800498B43 /* Game.h */,
+				2C8F9C7A1AA7FE2800498B43 /* Game.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -268,10 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8F9C7B1AA7FE2800498B43 /* NewGame.m in Sources */,
+				2C8F9C7B1AA7FE2800498B43 /* Game.m in Sources */,
 				2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */,
 				2C9AF5FD1AA642D000A830DF /* main.m in Sources */,
-				2C9AF6061AA642D000A830DF /* ViewController.m in Sources */,
+				2C9AF6061AA642D000A830DF /* MainMenuViewController.m in Sources */,
 				2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */,
 				2C9AF6261AA6434F00A830DF /* PlayingCard.m in Sources */,
 				2C9AF6291AA6522900A830DF /* Deck.m in Sources */,

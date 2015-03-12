@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewGame.h"
+#import "Game.h"
 #import "PlayingCardView.h"
 
 @interface GameViewController : UIViewController
 
 
-@property (strong, nonatomic) NewGame *game;
+@property (strong, nonatomic) Game *game;
+@property (strong, nonatomic) NSString *player1Name;
+
 
 @end

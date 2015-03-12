@@ -1,5 +1,5 @@
 //
-//  NewGame.h
+//  Game.h
 //  13
 //
 //  Created by Parker Lewis on 3/4/15.
@@ -11,7 +11,7 @@
 #import "Deck.h"
 
 
-@interface NewGame : NSObject
+@interface Game : NSObject
 
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) NSArray *players;

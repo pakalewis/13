@@ -25,8 +25,10 @@
     [super viewDidLoad];
 
     
-    self.game = [[NewGame alloc] init];
+    self.game = [[Game alloc] init];
+    self.game.player1.name = self.player1Name;
     self.selectedCardViews = [[NSMutableArray alloc] init];
+    [self.game.player1 displayHand];
 
     
 }

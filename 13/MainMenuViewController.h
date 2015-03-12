@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainMenuViewController.h
 //  13
 //
 //  Created by Parker Lewis on 3/3/15.
@@ -7,12 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlayingCard.h"
-#import "Deck.h"
-#import "Player.h"
 
 
-@interface ViewController : UIViewController
+@interface MainMenuViewController : UIViewController
 
 
 @end
