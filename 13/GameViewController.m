@@ -14,8 +14,9 @@
 
 @property (strong, nonatomic) NSMutableArray *playingCardViews;
 @property (strong, nonatomic) NSMutableArray *selectedCardViews;
+@property (strong, nonatomic) NSMutableArray *playedCardViews;
 
-@property (nonatomic) CGFloat initialOverlap;
+@property (nonatomic) CGFloat standardOverlap;
 
 @end
 
@@ -28,6 +29,7 @@
     self.game = [[Game alloc] init];
     self.game.player1.name = self.player1Name;
     self.selectedCardViews = [[NSMutableArray alloc] init];
+    self.playedCardViews = [[NSMutableArray alloc] init];
     [self.game.player1 displayHand];
 
     
@@ -40,7 +42,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    [self determineOverlap];
     [self createCardViews];
 }
 
@@ -90,7 +92,10 @@
     }
 }
 
-
+- (void) determineOverlap {
+    // Inspect views/sizes to determine standardOverlap
+    self.standardOverlap = 40;
+}
 
 - (void) dealCardViews {
 //    CGFloat height = self.player1HandContainer.frame.size.height;
@@ -100,8 +105,6 @@
     
     CGFloat leadingSpace = self.player1HandContainer.frame.size.width - self.tableauView.frame.size.width;
     CGFloat overlap = leadingSpace / 12;
-    self.initialOverlap = overlap;
-    NSLog(@"%f", self.initialOverlap);
     
     int count = 0;
     for (PlayingCardView *playingCardView in self.playingCardViews) {
@@ -129,7 +132,7 @@
     CGFloat cardWidth = self.tableauView.frame.size.width;
     
     CGFloat overlap = (containerWidth - cardWidth) / ([self.playingCardViews count] - 1);
-    if (overlap > 40) {
+    if (overlap > self.standardOverlap) {
         overlap = 40;
     }
 
@@ -162,24 +165,54 @@
 
 
 - (IBAction)playButtonPressed:(UIButton *)sender {
+    // Ask the player to play the combination
+    // Maybe this should return a BOOL to determine whether these animations should occur
     [self.game.player1 playCombination];
-    for (PlayingCardView *playingCardView in self.selectedCardViews) {
-        [self.playingCardViews removeObject:playingCardView];
-        
-        CGRect tableauFrame = self.tableauView.frame;
+    
+    [self condensePlayedCards];
+    
+    [self layDownSelectedCardsOntoTableau];
 
-        [UIView animateWithDuration:0.3 animations:^{
+    [self adjustCardFrames];
+}
+
+
+- (void)layDownSelectedCardsOntoTableau {
+    // Determine positions of frames for selected cards
+    CGRect tableauFrame = self.tableauView.frame;
+    CGFloat totalWidthOfSelection = tableauFrame.size.width + (self.standardOverlap * ([self.selectedCardViews count] - 1));
+    CGFloat startingXPos = tableauFrame.origin.x + (tableauFrame.size.width / 2) - (totalWidthOfSelection / 2);
+    
+    int count = 0;
+    for (PlayingCardView *playingCardView in self.selectedCardViews) {
+        // Remove from the playingCardViews array and add to the playedCardViews array
+        [self.playingCardViews removeObject:playingCardView];
+        [self.playedCardViews addObject:playingCardView];
+        
+        [UIView animateWithDuration:0.9 animations:^{
             [self.view bringSubviewToFront:playingCardView];
-            playingCardView.frame = CGRectMake(tableauFrame.origin.x,
+            playingCardView.frame = CGRectMake(startingXPos + self.standardOverlap * count,
                                                tableauFrame.origin.y,
                                                playingCardView.frame.size.width,
                                                playingCardView.frame.size.height);
         }];
-
+        count++;
     }
-    [self adjustCardFrames];
+    [self.selectedCardViews removeAllObjects];
 }
 
+
+- (void)condensePlayedCards {
+    // Condense previously played card views
+    NSLog(@"Played cards on the tableau = %lu", [self.playedCardViews count]);
+    for (PlayingCardView *playingCardView in self.playedCardViews) {
+        [UIView animateWithDuration:0.3 animations:^{
+            playingCardView.frame = self.tableauView.frame;
+        }];
+    }
+    [self.playedCardViews removeAllObjects];
+    
+}
 
 
 //    float timeBetweenEvents = 3.0;

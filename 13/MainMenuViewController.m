@@ -29,7 +29,7 @@
     self.playNewGameButton.layer.borderWidth = 2;
     
     self.nameTextField.delegate = self;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
     self.titleLabel.text = @"13 (Tiến Lên)";
     self.enterYourNameLabel.text = @"Enter Your Name";
@@ -55,7 +55,7 @@
     }
 }
 
--(void)dismissKeyboard {
+-(void)hideKeyboard {
     [self.nameTextField resignFirstResponder];
 }
 
