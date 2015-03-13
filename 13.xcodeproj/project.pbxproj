@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C18F63C1AB2984A002DC8E7 /* AIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C18F63B1AB2984A002DC8E7 /* AIPlayer.m */; };
 		2C8F9C7B1AA7FE2800498B43 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7A1AA7FE2800498B43 /* Game.m */; };
 		2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7D1AAA867E00498B43 /* GameViewController.m */; };
 		2C8F9C821AAA8BC500498B43 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C18F63A1AB2984A002DC8E7 /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
+		2C18F63B1AB2984A002DC8E7 /* AIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayer.m; sourceTree = "<group>"; };
 		2C8F9C791AA7FE2800498B43 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		2C8F9C7A1AA7FE2800498B43 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		2C8F9C7C1AAA867E00498B43 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				2C9AF62B1AA667CB00A830DF /* Player.m */,
 				2C8F9C791AA7FE2800498B43 /* Game.h */,
 				2C8F9C7A1AA7FE2800498B43 /* Game.m */,
+				2C18F63A1AB2984A002DC8E7 /* AIPlayer.h */,
+				2C18F63B1AB2984A002DC8E7 /* AIPlayer.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				2C8F9C7B1AA7FE2800498B43 /* Game.m in Sources */,
 				2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */,
 				2C9AF5FD1AA642D000A830DF /* main.m in Sources */,
+				2C18F63C1AB2984A002DC8E7 /* AIPlayer.m in Sources */,
 				2C9AF6061AA642D000A830DF /* MainMenuViewController.m in Sources */,
 				2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */,
 				2C9AF6261AA6434F00A830DF /* PlayingCard.m in Sources */,
