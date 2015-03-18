@@ -12,11 +12,8 @@
 
 @property (strong, nonatomic) PlayingCard *playingCard;
 
-@property (strong, nonatomic) UILabel *rankLabel;
-@property (strong, nonatomic) UILabel *suitLabel;
-@property (strong, nonatomic) UILabel *centerLabel;
+@property (nonatomic) BOOL faceUp;
 @property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 
-- (void)adjustToFitFrame:(CGRect)frame;
 
 @end
