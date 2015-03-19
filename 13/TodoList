@@ -1,0 +1,4 @@
+Todo List:
+
+- add ability to sort cards automatically
+- when selecting cards, make sure they are added to the selectedCards array in the correct order

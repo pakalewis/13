@@ -45,7 +45,11 @@
     roundedRect.lineWidth = 3;
     [roundedRect stroke];
 
-    [self drawRankAndSuit];
+    if (self.faceUp) {
+        [self drawRankAndSuit];
+    } else {
+        [[UIImage imageNamed:@"cardback"] drawInRect:self.bounds];
+    }
 }
 
 
@@ -114,7 +118,10 @@
 
 
 
-
+-(void)setFaceUp:(BOOL)faceUp {
+    _faceUp = faceUp;
+    [self setNeedsDisplay];
+}
 
 
 @end

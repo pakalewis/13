@@ -108,50 +108,31 @@
                                     <action selector="playButtonPressed:" destination="hyF-gU-0Em" eventType="touchUpInside" id="FwQ-fq-Uaz"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDB-uZ-CQP" userLabel="Tableau">
-                                <rect key="frame" x="252" y="190" width="97" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardback.png" translatesAutoresizingMaskIntoConstraints="NO" id="sVF-IF-W6H">
+                                <rect key="frame" x="258" y="190" width="84" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YDB-uZ-CQP" secondAttribute="height" multiplier="1:1" id="ddJ-Oq-6o5"/>
-                                    <constraint firstAttribute="width" secondItem="YDB-uZ-CQP" secondAttribute="height" multiplier="4.5:7" id="x1m-EV-mjn"/>
+                                    <constraint firstAttribute="width" secondItem="sVF-IF-W6H" secondAttribute="height" multiplier="9:16" id="vuw-LG-Nmy"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ddJ-Oq-6o5"/>
-                                    </mask>
-                                </variation>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.28243346759999999" green="0.72308084240000003" blue="0.26780771939999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RK2-lf-PEh" firstAttribute="top" secondItem="un5-uY-adL" secondAttribute="bottom" constant="10" id="1Nt-Xb-Hpu"/>
                             <constraint firstAttribute="centerX" secondItem="RK2-lf-PEh" secondAttribute="centerX" id="2DJ-Nd-IVJ"/>
                             <constraint firstItem="un5-uY-adL" firstAttribute="leading" secondItem="xJR-x9-BKQ" secondAttribute="leading" constant="10" id="6DH-mz-pcc"/>
-                            <constraint firstItem="qBK-qs-kdw" firstAttribute="top" secondItem="un5-uY-adL" secondAttribute="bottom" constant="20" id="Cal-A2-rke"/>
-                            <constraint firstItem="YDB-uZ-CQP" firstAttribute="height" secondItem="un5-uY-adL" secondAttribute="height" id="E8O-9r-WIc"/>
+                            <constraint firstItem="sVF-IF-W6H" firstAttribute="centerX" secondItem="un5-uY-adL" secondAttribute="centerX" id="LpT-CS-3Ck"/>
                             <constraint firstItem="pIP-xa-J8e" firstAttribute="top" secondItem="rdj-LU-MQr" secondAttribute="bottom" id="M0b-4P-zOl"/>
-                            <constraint firstAttribute="centerY" secondItem="RK2-lf-PEh" secondAttribute="centerY" id="PMO-Zh-nOi"/>
-                            <constraint firstItem="un5-uY-adL" firstAttribute="top" secondItem="YDB-uZ-CQP" secondAttribute="bottom" constant="50" id="Vf0-ig-bWu"/>
-                            <constraint firstItem="YDB-uZ-CQP" firstAttribute="centerX" secondItem="un5-uY-adL" secondAttribute="centerX" id="dhJ-Pd-fD0"/>
-                            <constraint firstAttribute="centerY" secondItem="YDB-uZ-CQP" secondAttribute="centerY" id="hgN-9w-2lz"/>
+                            <constraint firstItem="sVF-IF-W6H" firstAttribute="height" secondItem="un5-uY-adL" secondAttribute="height" id="Uej-jT-pyq"/>
                             <constraint firstItem="pIP-xa-J8e" firstAttribute="leading" secondItem="xJR-x9-BKQ" secondAttribute="leading" constant="16" id="ruj-A5-PU2"/>
                             <constraint firstItem="un5-uY-adL" firstAttribute="height" secondItem="xJR-x9-BKQ" secondAttribute="height" multiplier="0.25" id="t34-qL-xEY"/>
                             <constraint firstItem="qBK-qs-kdw" firstAttribute="top" secondItem="RK2-lf-PEh" secondAttribute="bottom" constant="20" id="tbk-ye-SLQ"/>
-                            <constraint firstItem="YDB-uZ-CQP" firstAttribute="width" secondItem="xJR-x9-BKQ" secondAttribute="width" multiplier="0.5" id="uaS-QX-Grj"/>
+                            <constraint firstItem="un5-uY-adL" firstAttribute="top" secondItem="sVF-IF-W6H" secondAttribute="bottom" constant="50" id="vXT-pQ-qro"/>
                             <constraint firstAttribute="trailing" secondItem="un5-uY-adL" secondAttribute="trailing" constant="10" id="yEI-Wp-XZV"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="hgN-9w-2lz"/>
-                                <exclude reference="uaS-QX-Grj"/>
-                                <exclude reference="Cal-A2-rke"/>
-                                <exclude reference="PMO-Zh-nOi"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="player1HandContainer" destination="un5-uY-adL" id="Q6M-Kw-1s3"/>
-                        <outlet property="tableauView" destination="YDB-uZ-CQP" id="kJe-wv-Pm8"/>
+                        <outlet property="tableauView" destination="sVF-IF-W6H" id="AIz-bP-Nea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8n-eY-8Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,4 +140,7 @@
             <point key="canvasLocation" x="783" y="136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cardback.png" width="750" height="1050"/>
+    </resources>
 </document>

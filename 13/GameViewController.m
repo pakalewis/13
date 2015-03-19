@@ -9,7 +9,7 @@
 #import "GameViewController.h"
 
 @interface GameViewController ()
-@property (weak, nonatomic) IBOutlet UIView *tableauView;
+@property (weak, nonatomic) IBOutlet UIImageView *tableauView;
 @property (weak, nonatomic) IBOutlet UIView *player1HandContainer;
 
 @property (strong, nonatomic) NSMutableArray *playingCardViews;
@@ -38,12 +38,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.player1HandContainer.backgroundColor = [UIColor clearColor];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self determineOverlap];
     [self createCardViews];
+    [self dealCardViews];
+
 }
 
 
@@ -53,13 +56,12 @@
     for (PlayingCard *card in self.game.player1.hand) {
         PlayingCardView *cardView = [[PlayingCardView alloc] initWithFrame:self.tableauView.frame];
         cardView.playingCard = card;
+        cardView.faceUp = NO;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cardTappedGesture:)];
         [cardView addGestureRecognizer:tapGesture];
         [self.view addSubview:cardView];
         [self.playingCardViews addObject:cardView];
     }
-    [self dealCardViews];
-
 }
 
 
@@ -114,8 +116,13 @@
         // Set up an incrementing delay for a cool card dealing animation
         NSTimeInterval delay = count * 0.1;
         [UIView animateWithDuration:0.3 delay:delay options:UIViewAnimationOptionCurveEaseInOut animations:^{
+
             playingCardView.frame = frame;
-        } completion:nil];
+        } completion:^(BOOL finished) {
+            if (finished) {
+                playingCardView.faceUp = YES;
+            }
+        }];
         count++;
     }
 }

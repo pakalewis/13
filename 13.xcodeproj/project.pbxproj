@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C18F63C1AB2984A002DC8E7 /* AIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C18F63B1AB2984A002DC8E7 /* AIPlayer.m */; };
+		2C39B6BA1ABA80C300198F4D /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C39B6B91ABA80C300198F4D /* cardback.png */; };
+		2C39B6BC1ABA83DF00198F4D /* TodoList in Resources */ = {isa = PBXBuildFile; fileRef = 2C39B6BB1ABA83DF00198F4D /* TodoList */; };
 		2C8F9C7B1AA7FE2800498B43 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7A1AA7FE2800498B43 /* Game.m */; };
 		2C8F9C7E1AAA867E00498B43 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C7D1AAA867E00498B43 /* GameViewController.m */; };
 		2C8F9C821AAA8BC500498B43 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		2C18F63A1AB2984A002DC8E7 /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
 		2C18F63B1AB2984A002DC8E7 /* AIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayer.m; sourceTree = "<group>"; };
+		2C39B6B91ABA80C300198F4D /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
+		2C39B6BB1ABA83DF00198F4D /* TodoList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TodoList; sourceTree = "<group>"; };
 		2C8F9C791AA7FE2800498B43 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		2C8F9C7A1AA7FE2800498B43 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		2C8F9C7C1AAA867E00498B43 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		2C8F9C7F1AAA8B6500498B43 /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				2C39B6B91ABA80C300198F4D /* cardback.png */,
 				2C9AF6241AA6434F00A830DF /* PlayingCard.h */,
 				2C9AF6251AA6434F00A830DF /* PlayingCard.m */,
 				2C9AF6271AA6522900A830DF /* Deck.h */,
@@ -117,6 +122,7 @@
 		2C9AF5F91AA642D000A830DF /* 13 */ = {
 			isa = PBXGroup;
 			children = (
+				2C39B6BB1ABA83DF00198F4D /* TodoList */,
 				2C8F9C7F1AAA8B6500498B43 /* Card */,
 				2C9AF6231AA6430C00A830DF /* Model */,
 				2C9AF6041AA642D000A830DF /* MainMenuViewController.h */,
@@ -255,6 +261,8 @@
 			files = (
 				2C9AF6091AA642D000A830DF /* Main.storyboard in Resources */,
 				2C9AF60E1AA642D000A830DF /* LaunchScreen.xib in Resources */,
+				2C39B6BC1ABA83DF00198F4D /* TodoList in Resources */,
+				2C39B6BA1ABA80C300198F4D /* cardback.png in Resources */,
 				2C9AF60B1AA642D000A830DF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
