@@ -10,37 +10,17 @@
 
 @implementation PlayingCardView
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
-
-
-//#pragma mark - Initialization
-//
-//- (void)setup
-//{
-//    self.backgroundColor = nil;
-//    self.opaque = NO;
-//    self.contentMode = UIViewContentModeRedraw;
-//}
-//
-//- (void)awakeFromNib
-//{
-//    [self setup];
-//}
-//
-//- (id)initWithFrame:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    [self setup];
+//- (instancetype)init {
+//    self = [super init];
+//    if (self) {
+//        
+//    }
 //    return self;
 //}
-//
+
+
+
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -97,10 +77,6 @@
                                   NSFontAttributeName : font,
                                   NSParagraphStyleAttributeName : paragraphStyle,
                                   NSForegroundColorAttributeName : color};
-    if (self.playingCard.isSuitRed) {
-        
-        
-    }
     NSAttributedString *attributedRankAndSuitString = [[NSAttributedString alloc] initWithString:rankAndSuitString attributes:attributes];
     
     CGRect textBounds;
@@ -109,13 +85,13 @@
     [attributedRankAndSuitString drawInRect:textBounds];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
+//    CGContextSaveGState(context);
     CGContextTranslateCTM(context, self.bounds.size.width, self.bounds.size.height);
     CGContextRotateCTM(context, M_PI);
     
     [attributedRankAndSuitString drawInRect:textBounds];
     
-    CGContextRestoreGState(UIGraphicsGetCurrentContext());
+//    CGContextRestoreGState(UIGraphicsGetCurrentContext());
 }
 
 

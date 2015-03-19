@@ -59,7 +59,6 @@
         [self.playingCardViews addObject:cardView];
     }
     [self dealCardViews];
-//    [self updateCardFrames];
 
 }
 
@@ -98,35 +97,34 @@
 }
 
 - (void) dealCardViews {
-//    CGFloat height = self.player1HandContainer.frame.size.height;
-//    CGFloat width = self.player1HandContainer.frame.size.width / [self.playingCardViews count];
     CGFloat posX = self.player1HandContainer.frame.origin.x;
     CGFloat posY = self.player1HandContainer.frame.origin.y;
     
+    // Calculates how much width the first 12 cards take up and determines the overlap amount
     CGFloat leadingSpace = self.player1HandContainer.frame.size.width - self.tableauView.frame.size.width;
     CGFloat overlap = leadingSpace / 12;
     
     int count = 0;
     for (PlayingCardView *playingCardView in self.playingCardViews) {
-        CGRect frame = CGRectMake(posX + count * overlap, posY, playingCardView.frame.size.width, playingCardView.frame.size.height);
+        // Calculate the frame
+        CGPoint origin = CGPointMake(posX + count * overlap, posY);
+        CGSize size = CGSizeMake(playingCardView.frame.size.width, playingCardView.frame.size.height);
+        CGRect frame = { origin, size };
 
-        [UIView animateWithDuration:0.3 animations:^{
+        // Set up an incrementing delay for a cool card dealing animation
+        NSTimeInterval delay = count * 0.1;
+        [UIView animateWithDuration:0.3 delay:delay options:UIViewAnimationOptionCurveEaseInOut animations:^{
             playingCardView.frame = frame;
-        }];
+        } completion:nil];
         count++;
     }
 }
 
 
-// Helper method. Need to figure out how to call via invocation
-- (void) animateCardView:(PlayingCardView *)playingCardView ToFrame:(CGRect)frame {
-    [UIView animateWithDuration:0.3 animations:^{
-        playingCardView.frame = frame;
-    }];
-}
 
 
-- (void)adjustCardFrames {
+- (void)adjustCardsInHand {
+    
     
     CGFloat containerWidth = self.player1HandContainer.frame.size.width;
     CGFloat cardWidth = self.tableauView.frame.size.width;
@@ -173,8 +171,11 @@
     
     [self layDownSelectedCardsOntoTableau];
 
-    [self adjustCardFrames];
+    [self adjustCardsInHand];
 }
+
+
+
 
 
 - (void)layDownSelectedCardsOntoTableau {
@@ -189,12 +190,14 @@
         [self.playingCardViews removeObject:playingCardView];
         [self.playedCardViews addObject:playingCardView];
         
+        CGRect frame = CGRectMake(startingXPos + self.standardOverlap * count,
+                                  tableauFrame.origin.y,
+                                  playingCardView.frame.size.width,
+                                  playingCardView.frame.size.height);
+        
         [UIView animateWithDuration:0.9 animations:^{
             [self.view bringSubviewToFront:playingCardView];
-            playingCardView.frame = CGRectMake(startingXPos + self.standardOverlap * count,
-                                               tableauFrame.origin.y,
-                                               playingCardView.frame.size.width,
-                                               playingCardView.frame.size.height);
+            playingCardView.frame = frame;
         }];
         count++;
     }
@@ -202,29 +205,17 @@
 }
 
 
+
 - (void)condensePlayedCards {
     // Condense previously played card views
-    NSLog(@"Played cards on the tableau = %lu", [self.playedCardViews count]);
     for (PlayingCardView *playingCardView in self.playedCardViews) {
         [UIView animateWithDuration:0.3 animations:^{
             playingCardView.frame = self.tableauView.frame;
         }];
     }
     [self.playedCardViews removeAllObjects];
-    
 }
 
-
-//    float timeBetweenEvents = 3.0;
-//        NSMethodSignature *methodSig = [NSMethodSignature methodSignatureForSelector:@selector(animateCardView:ToFrame:)];
-//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
-//        [invocation setTarget:self];
-//        [invocation setSelector:@selector(animateCardView:ToFrame:)];
-//        [invocation setArgument:&(playingCardView) atIndex:2];
-//        [invocation setArgument:&frame atIndex:3];
-//
-//
-//        [self performSelector:@selector(animateCardView:ToFrame:) withObject:playingCardView afterDelay:(count * timeBetweenEvents)];
 
 
 
