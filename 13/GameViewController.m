@@ -65,6 +65,11 @@
 }
 
 
+- (void) sortCards:(NSMutableArray *)cards {
+    
+}
+
+
 -(void)cardTappedGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
     PlayingCardView *tappedPlayingCardView = (PlayingCardView *)tapGestureRecognizer.view;
     NSLog(@"The tapped card is %@", tappedPlayingCardView.playingCard.contents);

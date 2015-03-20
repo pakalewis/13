@@ -26,6 +26,8 @@
         
         self.deck = [[Deck alloc] init];
         [self.deck dealCardsToPlayers:self.players];
+        NSArray *sortedHand = [self.player1.hand sortedArrayUsingSelector:@selector(compare:)];
+        self.player1.hand = [NSMutableArray arrayWithArray:sortedHand];
         [self.player1 displayHand];
     }
 

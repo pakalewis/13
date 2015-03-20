@@ -59,6 +59,19 @@
     }
 }
 
+
+- (NSComparisonResult)compare:(PlayingCard *)otherCard {
+    if (self.rank > otherCard.rank) {
+        return NSOrderedDescending;
+    } else if (self.rank < otherCard.rank) {
+        return NSOrderedAscending;
+    } else {
+        return NSOrderedSame;
+    }
+}
+
+
+
 // Class methods
 + (NSArray *)validSuits {
     return @[@"♠︎", @"♣︎", @"♦︎", @"♥︎"];

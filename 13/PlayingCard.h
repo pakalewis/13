@@ -20,6 +20,9 @@
 - (BOOL)isSuitBlack;
 - (BOOL)isSuitRed;
 
+- (NSComparisonResult)compare:(PlayingCard *)otherCard;
+
+
 // Class methods
 + (NSArray *)validSuits;
 + (NSUInteger)maxRank;
