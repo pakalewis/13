@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "PlayingCard.h"
+#import "CardGroup.h"
 
 @interface Player : NSObject
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *hand;
-@property (strong, nonatomic) NSMutableArray *combinationToPlay;
+@property (strong, nonatomic) CardGroup *combinationToPlay;
 
 - (void)displayHand;
 - (void)displayCurrentCombination;

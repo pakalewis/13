@@ -24,6 +24,7 @@
 		2C9AF6261AA6434F00A830DF /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6251AA6434F00A830DF /* PlayingCard.m */; };
 		2C9AF6291AA6522900A830DF /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF6281AA6522900A830DF /* Deck.m */; };
 		2C9AF62C1AA667CB00A830DF /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AF62B1AA667CB00A830DF /* Player.m */; };
+		2CDD71501AC106500092ED59 /* CardGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD714F1AC106500092ED59 /* CardGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		2C9AF6281AA6522900A830DF /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		2C9AF62A1AA667CB00A830DF /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		2C9AF62B1AA667CB00A830DF /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		2CDD714E1AC106500092ED59 /* CardGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardGroup.h; sourceTree = "<group>"; };
+		2CDD714F1AC106500092ED59 /* CardGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				2C9AF6281AA6522900A830DF /* Deck.m */,
 				2C8F9C801AAA8BC500498B43 /* PlayingCardView.h */,
 				2C8F9C811AAA8BC500498B43 /* PlayingCardView.m */,
+				2CDD714E1AC106500092ED59 /* CardGroup.h */,
+				2CDD714F1AC106500092ED59 /* CardGroup.m */,
 			);
 			name = Card;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C8F9C7B1AA7FE2800498B43 /* Game.m in Sources */,
+				2CDD71501AC106500092ED59 /* CardGroup.m in Sources */,
 				2C9AF6001AA642D000A830DF /* AppDelegate.m in Sources */,
 				2C9AF5FD1AA642D000A830DF /* main.m in Sources */,
 				2C18F63C1AB2984A002DC8E7 /* AIPlayer.m in Sources */,

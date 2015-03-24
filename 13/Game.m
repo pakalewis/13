@@ -13,6 +13,9 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
+        
+        self.gameState = undetermined;
+        
         self.player1 = [[Player alloc] init];
         self.player1.name = @"Parker";
         self.player2 = [[Player alloc] init];
@@ -33,6 +36,8 @@
 
     return self;
 }
+
+
 
 
 

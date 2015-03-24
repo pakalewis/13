@@ -11,8 +11,19 @@
 #import "Deck.h"
 
 
+typedef enum {
+    undetermined,
+    singles,
+    doubles,
+    triples,
+    bomb,
+    run
+} GameState;
+
 @interface Game : NSObject
 
+
+@property (nonatomic) GameState gameState;
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) NSArray *players;
 
@@ -22,6 +33,7 @@
 @property (strong, nonatomic) Player * player4;
 
 @property (strong, nonatomic) NSMutableArray *selectedCards;
+
 
 
 @end

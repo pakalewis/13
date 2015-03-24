@@ -17,9 +17,9 @@
     }
     return self;
 }
--(NSMutableArray *)combinationToPlay {
+-(CardGroup *)combinationToPlay {
     if (!_combinationToPlay) {
-        _combinationToPlay = [[NSMutableArray alloc] init];
+        _combinationToPlay = [[CardGroup alloc] init];
     }
 
     return _combinationToPlay;
@@ -36,7 +36,7 @@
 
 - (void) displayCurrentCombination {
     NSString *comboString = @"Current combo: ";
-    for (PlayingCard *card in self.combinationToPlay) {
+    for (PlayingCard *card in self.combinationToPlay.cards) {
         comboString = [comboString stringByAppendingString:@" "];
         comboString = [comboString stringByAppendingString:card.contents];
     }
@@ -44,18 +44,18 @@
 }
 
 - (void)addCardToCombination:(PlayingCard *)card {
-    [self.combinationToPlay addObject:card];
+    [self.combinationToPlay.cards addObject:card];
     [self displayCurrentCombination];
 }
 
 - (void)removeCardFromCombination:(PlayingCard *)card {
-    [self.combinationToPlay removeObject:card];
+    [self.combinationToPlay.cards removeObject:card];
     [self displayCurrentCombination];
 }
 
 - (void)playCombination {
     //First check if it can be played legally
-    for (PlayingCard *card in self.combinationToPlay) {
+    for (PlayingCard *card in self.combinationToPlay.cards) {
         [self.hand removeObject:card];
     }
     self.combinationToPlay = nil;
