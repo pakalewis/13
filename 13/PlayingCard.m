@@ -61,12 +61,22 @@
 
 
 - (NSComparisonResult)compare:(PlayingCard *)otherCard {
-    if (self.rank > otherCard.rank) {
+    NSArray *ranksInOrder = @[@"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K", @"A", @"2"];
+    NSArray *suitsInOrder = @[@"♠︎", @"♣︎", @"♦︎", @"♥︎"];
+    
+    NSInteger rankCheck = [ranksInOrder indexOfObject:self.rankAsString] - [ranksInOrder indexOfObject:otherCard.rankAsString];
+    NSInteger suitCheck = [suitsInOrder indexOfObject:self.suit] - [suitsInOrder indexOfObject:otherCard.suit];
+    
+    if (rankCheck > 0) {
         return NSOrderedDescending;
-    } else if (self.rank < otherCard.rank) {
+    } else if (rankCheck < 0) {
         return NSOrderedAscending;
-    } else {
-        return NSOrderedSame;
+    } else { // Ranks are the same
+        if (suitCheck > 0) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedAscending;
+        }
     }
 }
 
